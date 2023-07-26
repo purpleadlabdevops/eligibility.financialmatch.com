@@ -137,5 +137,9 @@ export default{
   &__message{
     font-size: rem(14);
   }
+  button[data-action="stop"],
+  button[data-action="start"]{
+    display: none !important;
+  }
 }
 </style>
