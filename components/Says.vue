@@ -69,7 +69,8 @@ export default{
         nav: true,
         navPosition: 'bottom',
         controls: false,
-        loop: false,
+        loop: true,
+        autoplay: true,
         gutter: 16,
         responsive: {
           992: {
