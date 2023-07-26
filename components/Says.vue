@@ -4,6 +4,7 @@
       <div class="says__title">
         <h2>What People Say</h2>
       </div>
+      <client-only>
       <div class="says__slider">
         <vue-tiny-slider v-bind="homeOptions">
           <div>
@@ -53,6 +54,7 @@
 
         </vue-tiny-slider>
       </div>
+      </client-only>
     </div>
   </section>
 </template>
