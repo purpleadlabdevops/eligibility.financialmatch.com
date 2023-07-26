@@ -71,6 +71,7 @@ export default{
         controls: false,
         loop: true,
         autoplay: true,
+        autoplayButton: false,
         gutter: 16,
         responsive: {
           992: {
