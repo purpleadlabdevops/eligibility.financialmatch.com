@@ -669,16 +669,20 @@ export default {
       font-size: 23px;
       line-height: 26px;
       text-align: center;
-      color: #000;
-      background: rgba(var(--accent-color-1), .2);
+      color: #fff;
       box-shadow: 0px 4px 10px #c7d6ed;
       border-radius: 15px;
       height: 74px;
       display: inline-block;
       margin: 15px auto;
       transition: 0.5s ease-in-out;
-      width: 300px;
       cursor: pointer;
+      background: var(--accent-color-1);
+      @media(min-width:768px){
+        width: 300px;
+        color: #000;
+        background: rgba(var(--accent-color-1), .2);
+      }
       &:hover {
         background: var(--accent-color-1);
         border-color: var(--accent-color-1);
@@ -697,12 +701,16 @@ export default {
     }
   }
   &-row{
-    display: flex;
-    justify-content: space-between;
     margin-top: 15px;
+    @media(min-width:768px){
+      display: flex;
+      justify-content: space-between;
+    }
     input{
-      width: calc(100% / 2 - 1rem);
-      margin: 0 !important;
+      @media(min-width:768px){
+        width: calc(100% / 2 - 1rem);
+        margin: 0 !important;
+      }
     }
   }
 }
