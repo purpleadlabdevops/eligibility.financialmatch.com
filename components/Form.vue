@@ -2,13 +2,31 @@
   <section class="form__wrap">
     <div class="container">
       <form @submit.prevent="submit" class="form" :class="`form__${design}`">
-        <div class="form-progress" :data-tab="step + 1">
-          <span :class="step + 1 >= 1 ? 'active':''" v-html="step + 1 > 1 ? '✔' : '1'">1</span>
-          <span :class="step + 1 >= 2 ? 'active':''" v-html="step + 1 > 2 ? '✔' : '2'">2</span>
-          <span :class="step + 1 >= 3 ? 'active':''" v-html="step + 1 > 3 ? '✔' : '3'">3</span>
-          <span :class="step + 1 >= 4 ? 'active':''" v-html="step + 1 > 4 ? '✔' : '4'">4</span>
-          <span :class="step + 1 >= 5 ? 'active':''" v-html="step + 1 > 5 ? '✔' : '5'">5</span>
-          <span :class="step + 1 >= 6 ? 'active':''" v-html="step + 1 > 6 ? '✔' : '6'">6</span>
+        <div class="form__progress" :data-tab="step + 1">
+          <div class="form__num" :class="step + 1 >= 1 ? 'active':''">
+            {{ step + 1 > 1 ? '✔' : '1' }}
+            <span>EMPLOYEES</span>
+          </div>
+          <div class="form__num" :class="step + 1 >= 2 ? 'active':''">
+            {{ step + 1 > 2 ? '✔' : '2' }}
+            <span>EXPERIENCE</span>
+          </div>
+          <div class="form__num" :class="step + 1 >= 3 ? 'active':''">
+            {{ step + 1 > 3 ? '✔' : '3' }}
+            <span>REVENUE</span>
+          </div>
+          <div class="form__num" :class="step + 1 >= 4 ? 'active':''">
+            {{ step + 1 > 4 ? '✔' : '4' }}
+            <span>OWNER</span>
+          </div>
+          <div class="form__num" :class="step + 1 >= 5 ? 'active':''">
+            {{ step + 1 > 5 ? '✔' : '5' }}
+            <span>PPP MONEY</span>
+          </div>
+          <div class="form__num" :class="step + 1 >= 6 ? 'active':''">
+            {{ step + 1 > 6 ? '✔' : '6' }}
+            <span>BORROWER INFO</span>
+          </div>
         </div>
         <div class="step" v-for="(item, i) in quiz" v-show="step === i && !notQualify">
           <h3 class="form-title" v-if="item.title" v-html="item.title" ></h3>
@@ -409,8 +427,309 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.form__wrap{
-  background: url(@/assets/img/step-bg.png) no-repeat center/cover;
-  padding-top: 100px;
+.form{
+  background: rgba(#dbeae9, .2);
+  border-radius: 15px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+  padding: rem(40) rem(20);
+  border-radius: 20px;
+  border: 2px #568f96 solid;
+  &__wrap{
+    background: url(@/assets/img/step-bg.png) no-repeat center/cover;
+    padding-top: rem(125);
+  }
+  &__num{
+    position: relative;
+    z-index: 2;
+    background: #C8C8C8;
+    width: res(40, 50);
+    height: res(40, 50);
+    line-height: res(40, 50);
+    text-align: center;
+    color: #333;
+    display: block;
+    border-radius: 50%;
+    font-size: res(16, 24);
+    &.active{
+      background: var(--brand-red);
+      color: #fff;
+    }
+    span{
+      font-size: res(8, 12);
+      text-transform: uppercase;
+      color: #111;
+      font-weight: 600;
+      line-height: 1.1;
+      display: block;
+      position: absolute;
+      top: calc(100% + .5rem);
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      padding: 0;
+      white-space: nowrap;
+    }
+  }
+  &__progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-250%);
+    &:before{
+      content: "";
+      background: var(--accent-color-4);
+      height: 1px;
+      transition: 1s ease;
+      position: absolute;
+      left: 0; right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+  }
+  .spinner {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    svg {
+      width: 50%;
+      max-width: 10rem;
+      animation: rotate 3.6s linear infinite;
+    }
+    circle {
+      fill: none;
+      stroke: #106b70;
+      stroke-width: 8px;
+      stroke-dasharray: 300;
+      animation: outline 2s cubic-bezier(0.77, 0, 0.18, 1) infinite;
+    }
+  }
+  @keyframes outline {
+    0% {
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dashoffset: 300;
+    }
+    100% {
+      stroke-dashoffset: 600;
+    }
+  }
+  @keyframes rotate {
+    from {
+      transform: rotate(0turn);
+    }
+    to {
+      transform: rotate(-1turn);
+    }
+  }
+  &:before {
+    content: '';
+    background: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 15px;
+    @media (min-width: 768px) {
+      height: 30px;
+    }
+  }
+  &-question{
+    font-weight: 700;
+    font-size: res(16, 20);
+    color: #333;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e5e5e5;
+    &:after{
+      content: '(Required)';
+      color: var(--brand-red);
+      font-weight: 400;
+      margin-left: .5rem;
+    }
+  }
+  &-title{
+    font-weight: 600;
+    font-size: res(18, 32);
+    color: #000;
+    margin-bottom: 15px;
+  }
+  &-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    .buttons {
+      .back {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 15px;
+        box-shadow: none;
+      }
+      @media (max-width: 767px) {
+        display: flex;
+        flex-direction: row-reverse;
+        .back {
+          flex: 1 30%;
+        }
+      }
+    }
+    button {
+      border: none;
+      font-weight: 700;
+      font-size: res(24, 30);
+      line-height: 1.1;
+      text-align: center;
+      color: var(--text-black);
+      background: #ffffff;
+      box-shadow: 0px 4px 10px rgba(1, 1, 1, 0.3), 0px -4px 0px #f8f8f8 inset;
+      border-radius: 15px;
+      height: rem(125);
+      display: block;
+      margin: .5rem;
+      width: calc(100% / 2 - 1rem);
+      max-width: rem(125);
+      transition: 0.25s ease-in-out;
+      @media(min-width:992px){
+        width: calc(100% / 3 - 1rem);
+      }
+      @media(min-width:1200px){
+        width: calc(100% / 5 - 1rem);
+      }
+      &.yellow {
+        color: #fff;
+        background: #fcd53f;
+        box-shadow: 0px 4px 10px #c7d6ed, 0px -4px 0px #fbca38 inset;
+      }
+      &.btn{
+        background: linear-gradient(45deg, rgba(255,255,255,1) 40%, rgba(200,200,200,1) 100%);
+        background-size: 100% 100%;
+        background-position: center center;
+        height: rem(125);
+        border-radius: 15px;
+        position: relative;
+        &__yes{
+          background-image: url(@/assets/img/yes.png);
+        }
+        &__no{
+          background-image: url(@/assets/img/no.png);
+        }
+        &__yes, &__no{
+          span {
+            display: block;
+            font-size: 18px;
+            text-transform: capitalize;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(5px);
+          }
+        }
+        &:hover{
+          cursor: pointer;
+          transform: scale(0.9);
+        }
+      }
+    }
+  }
+  input,
+  select {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    height: 77px;
+    background: #ffffff;
+    border: 2px solid rgb(39, 159, 150);
+    border-radius: 15px;
+    font-weight: 500;
+    font-size: 23px;
+    color: #59595a;
+    padding: 0 30px;
+    &:not(:first-child) {
+      margin-top: 15px;
+    }
+    &::placeholder {
+      color: #a4bce1;
+    }
+
+    &[type='submit'] {
+      border: 2px solid var(--accent-color-5);
+      font-weight: 500;
+      font-size: 23px;
+      line-height: 26px;
+      text-align: center;
+      color: #000;
+      background: rgba(var(--accent-color-1), .2);
+      box-shadow: 0px 4px 10px #c7d6ed;
+      border-radius: 15px;
+      height: 74px;
+      display: inline-block;
+      margin: 15px auto;
+      transition: 0.5s ease-in-out;
+      width: 300px;
+      cursor: pointer;
+      &:hover {
+        background: var(--accent-color-1);
+        border-color: var(--accent-color-1);
+        color: #fff;
+      }
+      &:active,
+      &.active {
+        background: #75a7ef;
+        color: #fff;
+        box-shadow: 0px 4px 10px #c7d6ed, 0px -4px 0px #75a7ef inset;
+      }
+      &.disabled, &:disabled {
+        opacity: 0.5;
+        cursor: wait;
+      }
+    }
+  }
+  &-row{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    input{
+      width: calc(100% / 2 - 1rem);
+      margin: 0 !important;
+    }
+  }
 }
+
+.radio{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  input{
+    width: 30px;
+    height: 30px;
+    margin-left: 0;
+    margin-right: 10px;
+  }
+  label{
+    font-size: 16px;
+  }
+  &-wrap{
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-start;
+  }
+  &:not(:first-child){
+    margin-left: 20px;
+  }
+}
+
+
+
 </style>

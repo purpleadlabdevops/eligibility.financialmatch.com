@@ -1,7 +1,7 @@
 <template>
   <section class="banner">
     <div class="container">
-      <h1 class="banner__title">“Get $26,000 Cash <br> for Each W2 Employee</h1>
+      <h1 class="banner__title">Get Up to $26,000 Cash <br> for Each W2 Employee</h1>
       <h2 class="banner__subtitle">TAKE ADVANTAGE OF CONGRESS CARES ACT FOR EMPLOYERS IMPACTED BY COVID</h2>
     </div>
   </section>

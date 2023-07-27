@@ -54,10 +54,17 @@
   &__list{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
   &__item{
     text-align: center;
-    width: calc(100% / 6 - 1rem);
+    width: calc(100% / 3 - 1rem);
+    @media(min-width:768px){
+      width: calc(100% / 4 - 1rem);
+    }
+    @media(min-width:1200px){
+      width: calc(100% / 6 - 1rem);
+    }
     img{
       display: block;
       width: 100%;
@@ -68,7 +75,7 @@
       color: white;
       border-radius: rem(50);
       margin-top: -1rem;
-      font-size: res(18, 24);
+      font-size: res(16, 24);
       padding: rem(8);
       position: relative;
       z-index: 2;

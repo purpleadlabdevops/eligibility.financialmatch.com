@@ -23,19 +23,26 @@
 
 <style lang="scss" scoped>
 .quality{
-  padding: res(50, 100) 0;
+  padding: res(30, 75) 0;
   .container{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
   }
   &__item{
-    width: calc(100% / 5 - 1rem);
+    width: calc(100% / 2 - 1rem);
     padding: 1rem .5rem;
     background: #fff;
     text-align: center;
     border-radius: rem(8);
     border-bottom: rem(4) solid transparent;
     transition: .5s ease;
+    @media(min-width:768px){
+      width: calc(100% / 4 - 1rem);
+    }
+    @media(min-width:1200px){
+      width: calc(100% / 5 - 1rem);
+    }
     &:not(:first-child){
       margin-left: 1rem;
     }

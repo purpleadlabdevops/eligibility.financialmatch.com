@@ -10,9 +10,5 @@
 </template>
 
 <script>
-export default {
-  mounted(){
-    // this.$store.commit('setPhone', '18775070229')
-  },
-}
+export default {}
 </script>
