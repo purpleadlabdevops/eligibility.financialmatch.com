@@ -2,7 +2,7 @@
   <header class="main-header">
     <div class="container">
       <nuxt-link to="/" class="main-header__logo">
-        <img src="@/assets/img/logo-white.png" alt="logo" />
+        <img src="@/assets/img/ntc-logo.png" alt="logo" />
       </nuxt-link>
     </div>
   </header>
@@ -16,7 +16,7 @@ export default {
 
 <style lang="scss">
 .main-header {
-  padding: res(10, 20) 0;
+  padding: res(10, 20) 0 0;
   .container{
     display: flex;
     justify-content: space-between;

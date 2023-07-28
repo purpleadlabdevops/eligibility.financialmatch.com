@@ -1,18 +1,18 @@
 export default {
   target: 'server',
   head: {
-    title: 'Financial Match | Apply for Your ERC Credit Today!',
+    title: 'National Tax Credit',
     htmlAttrs: {
       lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Financial Match | Apply for Your ERC Credit Today!' },
+      { hid: 'description', name: 'description', content: 'National Tax Credits | Apply for Your ERC Credit Today!' },
       { name: 'format-detection', content: 'telephone=no' },
       { name: "facebook-domain-verification", content: "kiopg5rxifn74adikb3gbcqtbnreck" }
     ],
-    link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
+    link: [{ rel: 'icon', type: 'image/png', href: '/tnc-favicon.png' }],
     script: [
       {
         ssr: false,

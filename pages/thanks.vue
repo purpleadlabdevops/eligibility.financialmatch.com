@@ -8,7 +8,9 @@
 </template>
 
 <script>
-export default {}
+export default {
+  layout: 'ntc',
+}
 </script>
 
 <style lang="scss" scoped>

@@ -1,15 +1,12 @@
 $width: 1440;
-$width-px: ($width)+px;
-@function vw($px-vw, $base-vw: 1440px){
-  @return $px-vw * 100vw / $base-vw;
-}
 
 @function cqi($fz){
   @return calc($fz / $width * 100cqi);
 }
 
 @function rem($px){
-  @return ($px / 16) + rem;
+  $result: calc($px / 16);
+  @return $result + rem;
 }
 
 @function res($min, $max){

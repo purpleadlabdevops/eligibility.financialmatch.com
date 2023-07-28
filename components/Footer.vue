@@ -3,9 +3,9 @@
     <div class="container">
       <div class="main-footer__top">
         <div class="main-footer__logo">
-          <img src="@/assets/img/logo-white.png" alt="logo" />
+          <img src="@/assets/img/ntc-logo.png" alt="logo" />
         </div>
-        <div>The experts at Financial Match take pride in maximizing your credits so that you can grow your business.</div>
+        <div>The experts at National Tax Credits take pride in maximizing your credits so that you can grow your business.</div>
       </div>
       <div class="main-footer__bottom">
         <div class="main-footer__menu">
@@ -46,7 +46,7 @@ export default {
   &__logo {
     width: res(100, 250);
     display: block;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     margin-left: auto;
     margin-right: auto;
     img {

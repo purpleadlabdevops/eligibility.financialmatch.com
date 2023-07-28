@@ -1,14 +1,16 @@
 <template>
   <div class="page__content">
-    <Banner />
-    <Form :hook="true" :thanks="true" />
-    <Quality />
-    <Wide />
-    <Retention />
-    <Says />
+    <NTCBanner />
+    <NTCForm :hook="true" :thanks="true" />
+    <NTCQuality />
+    <NTCWide />
+    <NTCRetention />
+    <NTCSays />
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  layout: 'ntc',
+}
 </script>
