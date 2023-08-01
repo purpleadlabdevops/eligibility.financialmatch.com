@@ -246,10 +246,9 @@ export default {
     submit() {
       this.spinner = true
       const owner = this.getAnswer('owner') === 'I am a Business Owner';
-      console.log(owner)
-      // this.$store.commit('setResult', this.getAnswer('number_of_w2_employees'))
+      this.$store.commit('setResult', this.getAnswer('number_of_w2_employees'))
 
-      // const employees = this.getAnswer('number_of_w2_employees')
+      const employees = this.getAnswer('number_of_w2_employees')
 
       const phone = '1'+this.phone.replace(/[^\dA-Z]/g, '').replace(/[\s]/g, '')
 
@@ -314,13 +313,13 @@ export default {
       if(this.$route.query.sub1) data.lp_s1 = this.$route.query.sub1
       if(this.$route.query.sub2) data.lp_s2 = this.$route.query.sub2
 
-      data.lp_offer_id = owner ? 1 : 2
+      data.lp_offer_id = employees > 4 && owner ? 1 : 2
       if(this.leadsData[this.$route.name]){
         console.dir(this.leadsData[this.$route.name])
-        data.lp_campaign_id = owner ? this.leadsData[this.$route.name].more : this.leadsData[this.$route.name].less
+        data.lp_campaign_id = employees > 4 && owner ? this.leadsData[this.$route.name].more : this.leadsData[this.$route.name].less
       } else {
         console.log('default camp id');
-        data.lp_campaign_id = owner ? "6410f3e5e5d11" : "6410f45962ab3"
+        data.lp_campaign_id = employees > 4 && owner ? "6410f3e5e5d11" : "6410f45962ab3"
       }
 
       if(process.env.NODE_ENV === 'development' || this.email === 'onyx18121990@gmail.com') data.lp_test = 1
@@ -335,7 +334,7 @@ export default {
             throw res.data.message
           } else {
             this.hookActionSecond(data)
-            if(owner && this.hook & this.$route.name !== 'lam-inceptly'){
+            if(employees > 4 && owner && this.hook & this.$route.name !== 'lam-inceptly'){
               this.hookAction(this.first_name, this.last_name, this.email, phone)
             }
             if(this.thanks){
@@ -369,3 +368,366 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.form {
+  background: #dbeae9;
+  border-radius: 15px;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 30px 15px 60px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+  @media (min-width: 768px) {
+    padding: 60px 30px 120px;
+  }
+  &-progress {
+    background: rgb(39, 159, 150);
+    height: 15px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0%;
+    transition: 1s ease;
+    @media (min-width: 768px) {
+      height: 30px;
+    }
+  }
+  .spinner {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    svg {
+      width: 50%;
+      max-width: 10rem;
+      animation: rotate 3.6s linear infinite;
+    }
+    circle {
+      fill: none;
+      stroke: #106b70;
+      stroke-width: 8px;
+      stroke-dasharray: 300;
+      animation: outline 2s cubic-bezier(0.77, 0, 0.18, 1) infinite;
+    }
+  }
+  @keyframes outline {
+    0% {
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dashoffset: 300;
+    }
+    100% {
+      stroke-dashoffset: 600;
+    }
+  }
+  @keyframes rotate {
+    from {
+      transform: rotate(0turn);
+    }
+    to {
+      transform: rotate(-1turn);
+    }
+  }
+  &:before {
+    content: '';
+    background: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 15px;
+    @media (min-width: 768px) {
+      height: 30px;
+    }
+  }
+  &:after {
+    content: '🔒 256-bit Secure Enscryption';
+    background: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 30px;
+    height: 30px;
+    text-align: center;
+    color: #181818;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+  h2 {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.2;
+    text-align: center;
+    color: #181818;
+    margin-bottom: 10px;
+    @media (max-width: 575px) {
+      margin-top: 0;
+    }
+  }
+  h3 {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.1;
+    text-align: center;
+    color: #181818;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (min-width: 768px) {
+      font-size: 16px;
+    }
+    svg {
+      display: block;
+      margin-left: 10px;
+      &:first-child {
+        margin-right: 15px;
+        margin-left: 0;
+      }
+    }
+  }
+  &-options {
+    .buttons {
+      .back {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 15px;
+        box-shadow: none;
+      }
+      @media (max-width: 767px) {
+        display: flex;
+        flex-direction: row-reverse;
+        .back {
+          flex: 1 30%;
+        }
+      }
+    }
+    button {
+      border: none;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 1.1;
+      text-align: center;
+      color: #59595a;
+      background: #ffffff;
+      box-shadow: 0px 4px 10px rgba(1, 1, 1, 0.3), 0px -4px 0px #f8f8f8 inset;
+      border-radius: 15px;
+      height: 60px;
+      display: block;
+      margin: 15px auto;
+      width: 340px;
+      max-width: 100%;
+      transition: 0.5s ease-in-out;
+      @media (min-width: 576px) {
+        height: 74px;
+        font-size: 23px;
+      }
+      @media (min-width: 768px) {
+        height: 77px;
+        width: 450px;
+      }
+      &:hover {
+        outline: 2px solid #59595a;
+      }
+      &:active,
+      &.active {
+        background: #75a7ef !important;
+        color: #fff !important;
+        box-shadow: 0px 4px 10px #c7d6ed, 0px -4px 0px #75a7ef inset !important;
+      }
+      &.yellow {
+        color: #fff;
+        background: #fcd53f;
+        box-shadow: 0px 4px 10px #c7d6ed, 0px -4px 0px #fbca38 inset;
+      }
+      @media (max-width: 575px) {
+        height: 50px;
+      }
+    }
+  }
+  input,
+  select {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    height: 77px;
+    background: #ffffff;
+    border: 2px solid rgb(39, 159, 150);
+    border-radius: 15px;
+    font-weight: 500;
+    font-size: 23px;
+    color: #59595a;
+    padding: 0 30px;
+    &:not(:first-child) {
+      margin-top: 15px;
+    }
+    &::placeholder {
+      color: #a4bce1;
+    }
+
+    &[type='submit'] {
+      border: none;
+      font-weight: 500;
+      font-size: 23px;
+      line-height: 26px;
+      text-align: center;
+      color: #fff;
+      background: #fcd53f;
+      box-shadow: 0px 4px 10px #c7d6ed, 0px -4px 0px #fbca38 inset;
+      border-radius: 15px;
+      height: 74px;
+      display: block;
+      margin: 15px auto;
+      width: 100%;
+      max-width: 100%;
+      transition: 0.5s ease-in-out;
+      @media (min-width: 768px) {
+        height: 77px;
+      }
+      &:hover {
+        outline: 2px solid #59595a;
+      }
+      &:active,
+      &.active {
+        background: #75a7ef;
+        color: #fff;
+        box-shadow: 0px 4px 10px #c7d6ed, 0px -4px 0px #75a7ef inset;
+      }
+      &.disabled, &:disabled {
+        opacity: 0.5;
+        cursor: wait;
+      }
+    }
+  }
+  /* FORM GREEN */
+  &__green {
+    background: var(--bg-green);
+    .form-progress{
+      background: var(--brand-blue);
+    }
+    &:before{
+      background: var(--brand-green);
+    }
+    .small{
+      color: var(--text-white);
+    }
+    .spinner {
+      circle {
+        stroke: var(--brand-green);
+      }
+    }
+    &:after {
+      background: var(--brand-green);
+      color: var(--text-white);
+    }
+    h2 {
+      color: var(--text-white);
+    }
+    h3 {
+      color: var(--text-white);
+    }
+    &-options {
+      .buttons {
+        .back {
+          background: rgba(255, 255, 255, 0.3);
+        }
+      }
+      button {
+        color: var(--text-black);
+        background: var(--bg-white);
+        &:hover {
+          outline: none;
+        }
+        &:active,
+        &.active {
+          background: #75a7ef !important;
+          color: #fff !important;
+          box-shadow: 0px 4px 10px #c7d6ed, 0px -4px 0px #75a7ef inset !important;
+        }
+        &.yellow {
+          color: #fff;
+          background: var(--brand-blue);
+        }
+        @media (max-width: 575px) {
+          height: 50px;
+        }
+      }
+    }
+    input,
+    select {
+      &[type='submit'] {
+        background: var(--brand-blue);
+        box-shadow: none;
+        &:active,
+        &.active {
+          background: #75a7ef;
+          color: #fff;
+        }
+      }
+      &:hover{
+        outline: none !important;
+        box-shadow: 0px 4px 10px #c7d6ed, 0px -4px 0px var(--bg-green) inset;
+      }
+    }
+  }
+  /* FORM MINT */
+  &__mint{
+    background: var(--accent-color-2) !important;
+    &:after {
+      background: var(--accent-color-4);
+      color: white;
+    }
+    h2 {
+      @media (max-width: 767px) {
+        font-size: 22px;
+      }
+    }
+    input[type='submit'],
+    .buttons button {
+      background: var(--accent-color-4);
+      box-shadow: 0px 4px 10px var(--accent-color-3),
+        0px -4px 0px var(--accent-color-1) inset;
+    }
+    .step path {
+      stroke: var(--accent-color-4);
+      stroke-width: 2;
+    }
+  }
+
+}
+
+.radio{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  input{
+    width: 30px;
+    height: 30px;
+    margin-left: 0;
+    margin-right: 10px;
+  }
+  label{
+    font-size: 16px;
+  }
+  &-wrap{
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-start;
+  }
+  &:not(:first-child){
+    margin-left: 20px;
+  }
+}
+
+
+
+
+</style>
