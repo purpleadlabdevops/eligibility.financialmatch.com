@@ -76,7 +76,16 @@
         required
         id="email"
       />
-      <FieldTel />
+      <input
+        type="tel"
+        placeholder="(###) ###-####"
+        v-model="phone"
+        @change="change('phone', $event)"
+        @input="phoneInput"
+        minlength="14"
+        maxlength="14"
+        id="phone"
+        required>
 
       <input type="submit" value="Submit" :disabled="spinner" />
 
@@ -201,27 +210,12 @@ export default {
     change(model, e){
       this[model] = e.target.value
     },
-    phoneInput(e){
-      const phoneNumber = this.phone.replace(/[^\dA-Z]/g, '').replace(/[\s]/g, '').split('')
-      const mask = '(###) ###-####'.split('')
-      phoneNumber.forEach(l => {
-        if(mask.some((m,i) => m === '#')){
-          const index = mask.findIndex((m,i) => m === '#')
-          mask[index] = l
-        }
-      })
-
-      let i = 0, newNumber = ''
-      do {
-        if(mask[i] !== '#'){
-          newNumber += mask[i]
-        } else {
-          break;
-        }
-        i = i + 1;
-      } while (i < mask.length)
-
-      this.phone = newNumber
+    phoneInput(e) {
+      let arr = this.phone.replace(/[^\dA-Z]/g, '').replace(/[\s]/g, '').split('');
+      if (arr.length > 0) arr.splice(0, 0, '(');
+      if (arr.length > 4) arr.splice(4, 0, ') ');
+      if (arr.length > 8) arr.splice(8, 0, '-');
+      this.phone = arr.toString().replace(/[,]/g, '');
     },
     chooseAnswer(a, i) {
       if(this.step === this.quiz.length){
