@@ -1,7 +1,7 @@
 <template>
   <section id="quiz" class="top">
     <div class="container">
-      <LAMThanks v-if="['lam'].includes(route)" />
+      <LAMThanks v-if="['lam-ntc'].includes(route)" />
       <div class="top__inner" v-else >
         <div class="top__questions-col">
           <LAMForm :hook="true" />

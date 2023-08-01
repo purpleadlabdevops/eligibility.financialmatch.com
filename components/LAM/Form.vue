@@ -135,6 +135,12 @@ export default {
       notValid: true,
       quiz: [
         {
+          question: 'Are you?',
+          options: ['I am a Business Owner', 'I am an Employee'],
+          answer: null,
+          id: 'owner',
+        },
+        {
           question: 'Did you Have W2 Employees in 2020 or 2021?',
           options: ['Yes', 'No'],
           answer: null,
@@ -239,9 +245,11 @@ export default {
     },
     submit() {
       this.spinner = true
-      this.$store.commit('setResult', this.getAnswer('number_of_w2_employees'))
+      const owner = this.getAnswer('owner') === 'I am a Business Owner';
+      console.log(owner)
+      // this.$store.commit('setResult', this.getAnswer('number_of_w2_employees'))
 
-      const employees = this.getAnswer('number_of_w2_employees')
+      // const employees = this.getAnswer('number_of_w2_employees')
 
       const phone = '1'+this.phone.replace(/[^\dA-Z]/g, '').replace(/[\s]/g, '')
 
@@ -251,12 +259,13 @@ export default {
         phone_home: phone,
         email_address: this.email,
         company_name: this.company,
-        ppp_money: this.getAnswer('ppp_money'),
-        w2_employees: this.getAnswer('w2_employees'),
-        number_of_w2_employees: this.getAnswer('number_of_w2_employees'),
-        supply_chain_disruption: this.getAnswer('supply_chain_disruption'),
-        decreased_revenue: this.getAnswer('decreased_revenue'),
-        owner_decision_maker: this.getAnswer('owner_decision_maker'),
+        owner: this.getAnswer('owner') || false,
+        ppp_money: this.getAnswer('ppp_money') || false,
+        w2_employees: this.getAnswer('w2_employees') || false,
+        number_of_w2_employees: this.getAnswer('number_of_w2_employees') || false,
+        supply_chain_disruption: this.getAnswer('supply_chain_disruption') || false,
+        decreased_revenue: this.getAnswer('decreased_revenue') || false,
+        owner_decision_maker: this.getAnswer('owner_decision_maker') || false,
         opt_in_url: window.location.href,
         data8: this.$route.query.utm_source || false,
         data9: this.$route.query.utm_medium || false,
@@ -305,13 +314,13 @@ export default {
       if(this.$route.query.sub1) data.lp_s1 = this.$route.query.sub1
       if(this.$route.query.sub2) data.lp_s2 = this.$route.query.sub2
 
-      data.lp_offer_id = employees > 4 ? 1 : 2
+      data.lp_offer_id = owner ? 1 : 2
       if(this.leadsData[this.$route.name]){
         console.dir(this.leadsData[this.$route.name])
-        data.lp_campaign_id = employees > 4 ? this.leadsData[this.$route.name].more : this.leadsData[this.$route.name].less
+        data.lp_campaign_id = owner ? this.leadsData[this.$route.name].more : this.leadsData[this.$route.name].less
       } else {
         console.log('default camp id');
-        data.lp_campaign_id = employees > 4 ? "6410f3e5e5d11" : "6410f45962ab3"
+        data.lp_campaign_id = owner ? "6410f3e5e5d11" : "6410f45962ab3"
       }
 
       if(process.env.NODE_ENV === 'development' || this.email === 'onyx18121990@gmail.com') data.lp_test = 1
@@ -326,7 +335,7 @@ export default {
             throw res.data.message
           } else {
             this.hookActionSecond(data)
-            if(employees > 4 && this.hook & this.$route.name !== 'lam-inceptly'){
+            if(owner && this.hook & this.$route.name !== 'lam-inceptly'){
               this.hookAction(this.first_name, this.last_name, this.email, phone)
             }
             if(this.thanks){

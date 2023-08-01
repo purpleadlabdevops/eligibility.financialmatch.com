@@ -26,7 +26,7 @@
 export default {
   computed: {
     money() {
-      return this.$store.state.result > 1 ? `$${this.$store.state.result * 26000}` : false
+      return this.$store.state.result > 1 ? `$${this.$store.state.result * 26000}` : 26000
     },
     phone() {
       return this.$store.state.phone
