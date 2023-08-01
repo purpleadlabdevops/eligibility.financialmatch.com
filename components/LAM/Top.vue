@@ -1,10 +1,11 @@
 <template>
   <section id="quiz" class="top">
     <div class="container">
-      <LAMThanks v-if="['lam-ntc'].includes(route)" />
+      <LAMThanks v-if="['lam-ntc', 'lam-ntc-entr'].includes(route)" />
       <div class="top__inner" v-else >
         <div class="top__questions-col">
-          <LAMForm :hook="true" />
+          <LAMFormEntr v-if="this.$route.name === 'lam-ntc-entr'" :hook="true" />
+          <LAMForm v-else :hook="true" />
           <ul class="top__list" v-if="winWidth <= 768">
             <li>Qualify 1 of 3 Different Ways (Revenue Reduction, Shutdowns, Supply Chain Disruptions)</li>
             <li>Get Money from the IRS, Even If You Got PPP</li>
