@@ -313,9 +313,6 @@ export default {
         })
     },
     submit() {
-      if(this.notValid){
-        alert('Your phone number not valid!')
-      } else {
         this.spinner = true
         this.$store.commit('setResult', this.getAnswer('number_of_w2_employees'))
 
@@ -402,7 +399,6 @@ export default {
           .finally(() => {
             this.spinner = false
           })
-      }
     },
   },
   watch: {
