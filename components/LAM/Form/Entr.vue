@@ -135,6 +135,12 @@ export default {
       notValid: true,
       quiz: [
         {
+          question: 'Are you?',
+          options: ['I am a Business Owner', 'I am an Employee'],
+          answer: null,
+          id: 'owner',
+        },
+        {
           question: 'I had W2 Employees in 2020 or 2021',
           options: ['Yes', 'No'],
           answer: null,
@@ -314,6 +320,7 @@ export default {
     },
     submit() {
         this.spinner = true
+        const owner = this.getAnswer('owner') === 'I am a Business Owner';
         this.$store.commit('setResult', this.getAnswer('number_of_w2_employees'))
 
         const employees = this.getAnswer('number_of_w2_employees')
@@ -326,6 +333,7 @@ export default {
           phone_home: phone,
           email_address: this.email,
           company_name: this.company,
+          owner: this.getAnswer('owner') || false,
           ppp_money: this.getAnswer('ppp_money'),
           w2_employees: this.getAnswer('w2_employees'),
           number_of_w2_employees: this.getAnswer('number_of_w2_employees'),
@@ -350,13 +358,13 @@ export default {
           s5: this.$route.query.utm_term || this.$route.query.sub5 || false,
         }
 
-        data.lp_offer_id = employees > 4 ? 1 : 2
+        data.lp_offer_id = employees > 4 && owner ? 1 : 2
         if(this.leadsData[this.$route.name]){
           console.dir(this.leadsData[this.$route.name])
-          data.lp_campaign_id = employees > 4 ? this.leadsData[this.$route.name].more : this.leadsData[this.$route.name].less
+          data.lp_campaign_id = employees > 4 && owner ? this.leadsData[this.$route.name].more : this.leadsData[this.$route.name].less
         } else {
           console.log('default camp id');
-          data.lp_campaign_id = employees > 4 ? "6410f3e5e5d11" : "6410f45962ab3"
+          data.lp_campaign_id = employees > 4 && owner ? "6410f3e5e5d11" : "6410f45962ab3"
         }
 
         if(process.env.NODE_ENV === 'development' || this.email === 'onyx18121990@gmail.com') data.lp_test = 1
@@ -374,7 +382,7 @@ export default {
                 this.firstpromoterAction()
               }
               this.hookActionSecond(data)
-              if(employees > 4 && this.hook){
+              if(employees > 4 && owner && this.hook){
                 this.hookAction(this.first_name, this.last_name, this.email, phone)
               }
               if(this.thanks){
