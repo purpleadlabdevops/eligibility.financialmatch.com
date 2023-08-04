@@ -111,6 +111,8 @@
 
           <input type="submit" value="Submit" :disabled="spinner" />
 
+          <div class="small">By clicking submit, you are providing express consent to be contacted by SMS, possibly using automated technology to the number you provided. If at any time you wish to opt-out of communication, please reply "STOP". Text "HELP" for help. Message frequency may vary. Message/data rates may apply. Submission of this form does not authorize the purchase of goods, services, or products. See the privacy policy/Terms and Conditions on the webpage.</div>
+
         </div>
         <div class="step" v-if="notQualify">
           <h2>You Do Not Qualify for ERC</h2>
@@ -124,6 +126,7 @@
             <circle cx="50" cy="50" r="46" />
           </svg>
         </div>
+
       </form>
     </div>
   </section>
