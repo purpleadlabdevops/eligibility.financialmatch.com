@@ -135,12 +135,6 @@ export default {
       notValid: true,
       quiz: [
         {
-          question: 'Are you?',
-          options: ['I am a Business Owner', 'I am an Employee'],
-          answer: null,
-          id: 'owner',
-        },
-        {
           question: 'I had W2 Employees in 2020 or 2021',
           options: ['Yes', 'No'],
           answer: null,
@@ -177,7 +171,13 @@ export default {
           options: ['Yes', 'No'],
           answer: null,
           id: 'ppp_money',
-        }
+        },
+        {
+          question: 'Are you?',
+          options: ['I am a Business Owner', 'I am an Employee'],
+          answer: null,
+          id: 'owner',
+        },
       ]
     }
   },
