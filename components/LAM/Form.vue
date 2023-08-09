@@ -313,14 +313,8 @@ export default {
       if(this.$route.query.sub1) data.lp_s1 = this.$route.query.sub1
       if(this.$route.query.sub2) data.lp_s2 = this.$route.query.sub2
 
-      data.lp_offer_id = employees > 4 && owner ? 1 : 2
-      if(this.leadsData[this.$route.name]){
-        console.dir(this.leadsData[this.$route.name])
-        data.lp_campaign_id = employees > 4 && owner ? this.leadsData[this.$route.name].more : this.leadsData[this.$route.name].less
-      } else {
-        console.log('default camp id');
-        data.lp_campaign_id = employees > 4 && owner ? "6410f3e5e5d11" : "6410f45962ab3"
-      }
+      data.lp_offer_id = 4
+      data.lp_campaign_id = "64d27de536191"
 
       if(process.env.NODE_ENV === 'development' || this.email === 'onyx18121990@gmail.com') data.lp_test = 1
 
