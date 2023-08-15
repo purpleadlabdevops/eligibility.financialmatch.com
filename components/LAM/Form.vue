@@ -245,7 +245,7 @@ export default {
     },
     submit() {
       this.spinner = true
-      const owner = this.getAnswer('owner') === 'I am a Business Owner' ? 'Yes':'No';
+      const owner = this.getAnswer('owner') === 'I am a Business Owner' ? 'No':'Yes';
       this.$store.commit('setResult', this.getAnswer('number_of_w2_employees'))
 
       const employees = this.getAnswer('number_of_w2_employees')
