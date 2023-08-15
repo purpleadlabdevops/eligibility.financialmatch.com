@@ -320,7 +320,7 @@ export default {
     },
     submit() {
         this.spinner = true
-        const owner = this.getAnswer('owner') === 'I am a Business Owner';
+        const owner = this.getAnswer('owner') === 'I am a Business Owner' ? 'Yes':'No';
         this.$store.commit('setResult', this.getAnswer('number_of_w2_employees'))
 
         const employees = this.getAnswer('number_of_w2_employees')
@@ -333,7 +333,7 @@ export default {
           phone_home: phone,
           email_address: this.email,
           company_name: this.company,
-          owner: this.getAnswer('owner') || false,
+          is_employee: owner,
           ppp_money: this.getAnswer('ppp_money'),
           w2_employees: this.getAnswer('w2_employees'),
           number_of_w2_employees: this.getAnswer('number_of_w2_employees'),
@@ -376,7 +376,7 @@ export default {
                 this.firstpromoterAction()
               }
               this.hookActionSecond(data)
-              if(employees > 4 && owner && this.hook){
+              if(employees > 4 && owner === 'Yes' && this.hook){
                 this.hookAction(this.first_name, this.last_name, this.email, phone)
               }
               if(this.thanks){
