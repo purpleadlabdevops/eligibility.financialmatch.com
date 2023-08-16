@@ -44,7 +44,6 @@
 .wide{
   padding: rem(30) 0 res(50, 100);
   background: #fff;
-  h2{}
   h3{
     margin-bottom: 2rem;
     span{
@@ -52,19 +51,25 @@
     }
   }
   &__list{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    @media(min-width:768px){
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media(min-width:992px){
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @media(min-width:1200px){
+      grid-template-columns: repeat(6, 1fr);
+    }
   }
   &__item{
     text-align: center;
-    width: calc(100% / 3 - 1rem);
-    @media(min-width:768px){
-      width: calc(100% / 4 - 1rem);
-    }
-    @media(min-width:1200px){
-      width: calc(100% / 6 - 1rem);
-    }
     img{
       display: block;
       width: 100%;
@@ -81,7 +86,6 @@
       z-index: 2;
       display: inline-block;
     }
-    p{}
   }
 }
 </style>

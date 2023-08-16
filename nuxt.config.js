@@ -7,7 +7,7 @@ export default {
     },
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width, user-scalable=no, user-scalable=0, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0 user-scalable=0' },
       { hid: 'description', name: 'description', content: 'National Tax Credits | Apply for Your ERC Credit Today!' },
       { name: 'format-detection', content: 'telephone=no' },
       { name: "facebook-domain-verification", content: "kiopg5rxifn74adikb3gbcqtbnreck" }

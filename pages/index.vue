@@ -12,5 +12,8 @@
 <script>
 export default {
   layout: 'ntc',
+  mounted(){
+    this.$store.commit('setPhone', '18669602397')
+  }
 }
 </script>

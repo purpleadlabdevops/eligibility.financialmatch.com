@@ -28,7 +28,7 @@ export default {
     }
   },
   mounted(){
-    this.$store.commit('setPhone', '18339930036')
-  },
+    this.$store.commit('setPhone', '18556512580')
+  }
 }
 </script>

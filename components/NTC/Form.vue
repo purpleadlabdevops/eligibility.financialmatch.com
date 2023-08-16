@@ -164,7 +164,7 @@ export default {
           question: 'How Many W2 Employees Do You Have?',
           title: 'I HAD W2 EMPLOYEES IN 2020 OR 2021',
           required: true,
-          options: ['1-10', '11-50', '51-100', '101-200', '201-500', '500+'],
+          options: ['1-4','5-10','11-50','51-100','101-200','200+'],
           answer: null,
           id: 'number_of_w2_employees',
           type: 'text',
