@@ -104,10 +104,9 @@
             v-model="phone"
             @change="change('phone', $event)"
             @input="phoneInput"
-            minlength="14"
+            ref="phone"
             maxlength="14"
-            id="phone"
-            required>
+            id="phone">
 
           <input type="submit" value="Submit" :disabled="spinner" />
 
@@ -340,81 +339,89 @@ export default {
         })
     },
     submit() {
-      this.spinner = true
-      const phone = '1'+this.phone.replace(/[^\dA-Z]/g, '').replace(/[\s]/g, '')
-      const data = {
-        first_name: this.first_name,
-        last_name: this.last_name,
-        phone_home: phone,
-        email_address: this.email,
-        company_name: this.company,
-        ppp_money: this.getAnswer('ppp_money'),
-        w2_employees: 'Yes',
-        num_employees_range: this.getAnswer('num_employees_range'),
-        supply_chain_disruption: this.getAnswer('supply_chain_disruption'),
-        decreased_revenue: this.getAnswer('decreased_revenue'),
-        owner_decision_maker: this.getAnswer('owner_decision_maker'),
-        opt_in_url: window.location.href,
-        data8: this.$route.query.utm_source || false,
-        data9: this.$route.query.utm_medium || false,
-        data10: this.$route.query.utm_campaign || false,
-        utm_source: this.$route.query.utm_source || false,
-        utm_medium: this.$route.query.utm_medium || false,
-        utm_campaign: this.$route.query.utm_campaign || false,
-        utm_content: this.$route.query.utm_content || false,
-        utm_term: this.$route.query.utm_term || false,
-        jornaya_lead_id: this.$refs.leadid_token ? this.$refs.leadid_token.value : false,
-        aff_id: this.$route.query.affid || false,
-        s1: this.$route.query.utm_source || this.$route.query.sub1 || false,
-        s2: this.$route.query.utm_medium || this.$route.query.sub2 || false,
-        s3: this.$route.query.utm_campaign || this.$route.query.sub3 || false,
-        s4: this.$route.query.utm_content || this.$route.query.sub4 || false,
-        s5: this.$route.query.utm_term || this.$route.query.sub5 || false,
-      }
+      if(this.phone.length < 14){
+        this.$refs.phone.classList.add('err')
+        alert('Please insert valid phone number')
+        setTimeout(()=>{
+          this.$refs.phone.classList.remove('err')
+        }, 2000);
+      } else{
+        this.spinner = true
+        const phone = '1'+this.phone.replace(/[^\dA-Z]/g, '').replace(/[\s]/g, '')
+        const data = {
+          first_name: this.first_name,
+          last_name: this.last_name,
+          phone_home: phone,
+          email_address: this.email,
+          company_name: this.company,
+          ppp_money: this.getAnswer('ppp_money'),
+          w2_employees: 'Yes',
+          num_employees_range: this.getAnswer('num_employees_range'),
+          supply_chain_disruption: this.getAnswer('supply_chain_disruption'),
+          decreased_revenue: this.getAnswer('decreased_revenue'),
+          owner_decision_maker: this.getAnswer('owner_decision_maker'),
+          opt_in_url: window.location.href,
+          data8: this.$route.query.utm_source || false,
+          data9: this.$route.query.utm_medium || false,
+          data10: this.$route.query.utm_campaign || false,
+          utm_source: this.$route.query.utm_source || false,
+          utm_medium: this.$route.query.utm_medium || false,
+          utm_campaign: this.$route.query.utm_campaign || false,
+          utm_content: this.$route.query.utm_content || false,
+          utm_term: this.$route.query.utm_term || false,
+          jornaya_lead_id: this.$refs.leadid_token ? this.$refs.leadid_token.value : false,
+          aff_id: this.$route.query.affid || false,
+          s1: this.$route.query.utm_source || this.$route.query.sub1 || false,
+          s2: this.$route.query.utm_medium || this.$route.query.sub2 || false,
+          s3: this.$route.query.utm_campaign || this.$route.query.sub3 || false,
+          s4: this.$route.query.utm_content || this.$route.query.sub4 || false,
+          s5: this.$route.query.utm_term || this.$route.query.sub5 || false,
+        }
 
-      data.lp_offer_id = 4
-      data.lp_campaign_id = "64d27de536191"
+        data.lp_offer_id = 4
+        data.lp_campaign_id = "64d27de536191"
 
-      if(process.env.NODE_ENV === 'development' || this.email === 'onyx18121990@gmail.com') data.lp_test = 1
+        if(process.env.NODE_ENV === 'development' || this.email === 'onyx18121990@gmail.com') data.lp_test = 1
 
-      this.$axios.post(process.env.API+'/lp', {
-        headers: {'Content-Type': 'application/json'},
-        params: data
-      })
-        .then(res => {
-          console.dir(res)
-          if(res.data.result === "failed" || res.status > 299){
-            throw res.data.message
-          } else {
-            if(['refe'].includes(this.$route.name)){
-              this.firstpromoterAction()
-            }
-            this.hookActionSecond(data)
-            // if(employees > 4 && this.hook){
-            //   this.hookAction(this.first_name, this.last_name, this.email, phone)
-            // }
-            if(this.thanks){
-              this.$router.push({
-                path: '/thanks',
-                query: {
-                  q: JSON.stringify(this.quiz),
-                  name: this.$route.name,
-                  email: this.email,
-                  r: JSON.stringify(res)
-                }
-              })
+        this.$axios.post(process.env.API+'/lp', {
+          headers: {'Content-Type': 'application/json'},
+          params: data
+        })
+          .then(res => {
+            console.dir(res)
+            if(res.data.result === "failed" || res.status > 299){
+              throw res.data.message
             } else {
-              this.$parent.route = this.$route.name
+              if(['refe'].includes(this.$route.name)){
+                this.firstpromoterAction()
+              }
+              this.hookActionSecond(data)
+              // if(employees > 4 && this.hook){
+              //   this.hookAction(this.first_name, this.last_name, this.email, phone)
+              // }
+              if(this.thanks){
+                this.$router.push({
+                  path: '/thanks',
+                  query: {
+                    q: JSON.stringify(this.quiz),
+                    name: this.$route.name,
+                    email: this.email,
+                    r: JSON.stringify(res)
+                  }
+                })
+              } else {
+                this.$parent.route = this.$route.name
+              }
             }
-          }
-        })
-        .catch(err => {
-          if(process.env.NODE_ENV === 'production') this.$axios.post(process.env.API+'/error', { params: { msg: 'Form.vue '+err } })
-          this.$swal(err)
-        })
-        .finally(() => {
-          this.spinner = false
-        })
+          })
+          .catch(err => {
+            if(process.env.NODE_ENV === 'production') this.$axios.post(process.env.API+'/error', { params: { msg: 'Form.vue '+err } })
+            this.$swal(err)
+          })
+          .finally(() => {
+            this.spinner = false
+          })
+      }
     },
   },
   watch: {

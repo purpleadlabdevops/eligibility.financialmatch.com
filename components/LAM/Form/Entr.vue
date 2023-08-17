@@ -83,6 +83,7 @@
         ref="phone"
         @change="change('phone', $event)"
         @input="phoneInput"
+        maxlength="14"
         id="phone">
 
       <input type="submit" value="Submit" :disabled="spinner" />
