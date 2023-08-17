@@ -166,7 +166,7 @@ export default {
           required: true,
           options: ['1-4','5-10','11-50','51-100','101-200','200+'],
           answer: null,
-          id: 'number_of_w2_employees',
+          id: 'num_employees_range',
           type: 'text',
         },
         {
@@ -350,7 +350,7 @@ export default {
         company_name: this.company,
         ppp_money: this.getAnswer('ppp_money'),
         w2_employees: 'Yes',
-        number_of_w2_employees: this.getAnswer('number_of_w2_employees'),
+        num_employees_range: this.getAnswer('num_employees_range'),
         supply_chain_disruption: this.getAnswer('supply_chain_disruption'),
         decreased_revenue: this.getAnswer('decreased_revenue'),
         owner_decision_maker: this.getAnswer('owner_decision_maker'),
