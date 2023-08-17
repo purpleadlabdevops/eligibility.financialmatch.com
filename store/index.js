@@ -1,7 +1,7 @@
 export const state = () => ({
   index: 0,
   result: 0,
-  phone: '18666250019'
+  phone: '18669602397'
 })
 
 export const mutations = {
