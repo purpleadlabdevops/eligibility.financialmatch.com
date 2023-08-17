@@ -80,6 +80,7 @@
         type="tel"
         placeholder="(###) ###-####"
         v-model="phone"
+        ref="phone"
         @change="change('phone', $event)"
         @input="phoneInput"
         minlength="14"
@@ -319,6 +320,13 @@ export default {
         })
     },
     submit() {
+      if(this.phone.length < 14){
+        this.$refs.phone.classList.add('err')
+        alert('Please insert valid phone number')
+        setTimeout(()=>{
+          this.$refs.phone.classList.remove('err')
+        }, 2000);
+      } else{
         this.spinner = true
         const owner = this.getAnswer('owner') === 'I am a Business Owner' ? 'No':'Yes';
         this.$store.commit('setResult', this.getAnswer('number_of_w2_employees'))
@@ -401,6 +409,7 @@ export default {
           .finally(() => {
             this.spinner = false
           })
+      }
     },
   },
   watch: {

@@ -80,6 +80,7 @@
         type="tel"
         placeholder="(###) ###-####"
         v-model="phone"
+        ref="phone"
         @change="change('phone', $event)"
         @input="phoneInput"
         minlength="14"
@@ -244,115 +245,123 @@ export default {
         })
     },
     submit() {
-      this.spinner = true
-      const owner = this.getAnswer('owner') === 'I am a Business Owner' ? 'No':'Yes';
-      this.$store.commit('setResult', this.getAnswer('number_of_w2_employees'))
+      if(this.phone.length < 14){
+        this.$refs.phone.classList.add('err')
+        alert('Please insert valid phone number')
+        setTimeout(()=>{
+          this.$refs.phone.classList.remove('err')
+        }, 2000);
+      } else{
+        this.spinner = true
+        const owner = this.getAnswer('owner') === 'I am a Business Owner' ? 'No':'Yes';
+        this.$store.commit('setResult', this.getAnswer('number_of_w2_employees'))
 
-      const employees = this.getAnswer('number_of_w2_employees')
+        const employees = this.getAnswer('number_of_w2_employees')
 
-      const phone = '1'+this.phone.replace(/[^\dA-Z]/g, '').replace(/[\s]/g, '')
+        const phone = '1'+this.phone.replace(/[^\dA-Z]/g, '').replace(/[\s]/g, '')
 
-      const data = {
-        first_name: this.first_name,
-        last_name: this.last_name,
-        phone_home: phone,
-        email_address: this.email,
-        company_name: this.company,
-        is_employee: owner,
-        ppp_money: this.getAnswer('ppp_money') || false,
-        w2_employees: this.getAnswer('w2_employees') || false,
-        number_of_w2_employees: this.getAnswer('number_of_w2_employees') || false,
-        supply_chain_disruption: this.getAnswer('supply_chain_disruption') || false,
-        decreased_revenue: this.getAnswer('decreased_revenue') || false,
-        owner_decision_maker: this.getAnswer('owner_decision_maker') || false,
-        opt_in_url: window.location.href,
-        data8: this.$route.query.utm_source || false,
-        data9: this.$route.query.utm_medium || false,
-        data10: this.$route.query.utm_campaign || false,
-        utm_source: this.$route.query.utm_source || false,
-        utm_medium: this.$route.query.utm_medium || false,
-        utm_campaign: this.$route.query.utm_campaign || false,
-        utm_content: this.$route.query.utm_content || false,
-        utm_term: this.$route.query.utm_term || false,
-        jornaya_lead_id: this.$refs.leadid_token ? this.$refs.leadid_token.value : false,
-        aff_id: this.$route.query.affid || false,
-        s1: this.$route.query.utm_source || this.$route.query.sub1 || false,
-        s2: this.$route.query.utm_medium || this.$route.query.sub2 || false,
-        s3: this.$route.query.utm_campaign || this.$route.query.sub3 || false,
-        s4: this.$route.query.utm_content || this.$route.query.sub4 || false,
-        s5: this.$route.query.utm_term || this.$route.query.sub5 || false,
-      }
+        const data = {
+          first_name: this.first_name,
+          last_name: this.last_name,
+          phone_home: phone,
+          email_address: this.email,
+          company_name: this.company,
+          is_employee: owner,
+          ppp_money: this.getAnswer('ppp_money') || false,
+          w2_employees: this.getAnswer('w2_employees') || false,
+          number_of_w2_employees: this.getAnswer('number_of_w2_employees') || false,
+          supply_chain_disruption: this.getAnswer('supply_chain_disruption') || false,
+          decreased_revenue: this.getAnswer('decreased_revenue') || false,
+          owner_decision_maker: this.getAnswer('owner_decision_maker') || false,
+          opt_in_url: window.location.href,
+          data8: this.$route.query.utm_source || false,
+          data9: this.$route.query.utm_medium || false,
+          data10: this.$route.query.utm_campaign || false,
+          utm_source: this.$route.query.utm_source || false,
+          utm_medium: this.$route.query.utm_medium || false,
+          utm_campaign: this.$route.query.utm_campaign || false,
+          utm_content: this.$route.query.utm_content || false,
+          utm_term: this.$route.query.utm_term || false,
+          jornaya_lead_id: this.$refs.leadid_token ? this.$refs.leadid_token.value : false,
+          aff_id: this.$route.query.affid || false,
+          s1: this.$route.query.utm_source || this.$route.query.sub1 || false,
+          s2: this.$route.query.utm_medium || this.$route.query.sub2 || false,
+          s3: this.$route.query.utm_campaign || this.$route.query.sub3 || false,
+          s4: this.$route.query.utm_content || this.$route.query.sub4 || false,
+          s5: this.$route.query.utm_term || this.$route.query.sub5 || false,
+        }
 
-      if(this.$route.query.ad_id) data.ad_id = this.$route.query.ad_id
-      if(this.$route.query.ad_name) data.ad_name = this.$route.query.ad_name
-      if(this.$route.query.adset_id) data.adset_id = this.$route.query.adset_id
-      if(this.$route.query.adset_name) data.adset_name = this.$route.query.adset_name
-      if(this.$route.query.campaign_id) data.campaign_id = this.$route.query.campaign_id
-      if(this.$route.query.campaign_name) data.campaign_name = this.$route.query.campaign_name
-      if(this.$route.query.cpid) data.cpid = this.$route.query.cpid
-      if(this.$route.query.fbc_id) data.fbc_id = this.$route.query.fbc_id
-      if(this.$route.query.h_ad_id) data.h_ad_id = this.$route.query.h_ad_id
-      if(this.$route.query.placement) data.placement = this.$route.query.placement
-      if(this.$route.query.source) data.source = this.$route.query.source
+        if(this.$route.query.ad_id) data.ad_id = this.$route.query.ad_id
+        if(this.$route.query.ad_name) data.ad_name = this.$route.query.ad_name
+        if(this.$route.query.adset_id) data.adset_id = this.$route.query.adset_id
+        if(this.$route.query.adset_name) data.adset_name = this.$route.query.adset_name
+        if(this.$route.query.campaign_id) data.campaign_id = this.$route.query.campaign_id
+        if(this.$route.query.campaign_name) data.campaign_name = this.$route.query.campaign_name
+        if(this.$route.query.cpid) data.cpid = this.$route.query.cpid
+        if(this.$route.query.fbc_id) data.fbc_id = this.$route.query.fbc_id
+        if(this.$route.query.h_ad_id) data.h_ad_id = this.$route.query.h_ad_id
+        if(this.$route.query.placement) data.placement = this.$route.query.placement
+        if(this.$route.query.source) data.source = this.$route.query.source
 
-      if(this.$route.query.gclid) data.gclid = this.$route.query.gclid
-      if(this.$route.query.gbraid) data.gbraid = this.$route.query.gbraid
-      if(this.$route.query.wbraid) data.wbraid = this.$route.query.wbraid
-      if(this.$route.query.adgroupid) data.adgroupid = this.$route.query.adgroupid
-      if(this.$route.query.campaignid) data.campaignid = this.$route.query.campaignid
-      if(this.$route.query.creative) data.creative = this.$route.query.creative
-      if(this.$route.query.device) data.device = this.$route.query.device
-      if(this.$route.query.loc_physicall_ms) data.loc_physicall_ms = this.$route.query.loc_physicall_ms
-      if(this.$route.query.loc_interest_ms) data.loc_interest_ms = this.$route.query.loc_interest_ms
-      if(this.$route.query.network) data.network = this.$route.query.network
-      if(this.$route.query.placement) data.placement = this.$route.query.placement
-      if(this.$route.query.gc_id) data.gc_id = this.$route.query.gc_id
-      if(this.$route.query.h_ad_id) data.h_ad_id = this.$route.query.h_ad_id
-      if(this.$route.query.cpid) data.cpid = this.$route.query.cpid
+        if(this.$route.query.gclid) data.gclid = this.$route.query.gclid
+        if(this.$route.query.gbraid) data.gbraid = this.$route.query.gbraid
+        if(this.$route.query.wbraid) data.wbraid = this.$route.query.wbraid
+        if(this.$route.query.adgroupid) data.adgroupid = this.$route.query.adgroupid
+        if(this.$route.query.campaignid) data.campaignid = this.$route.query.campaignid
+        if(this.$route.query.creative) data.creative = this.$route.query.creative
+        if(this.$route.query.device) data.device = this.$route.query.device
+        if(this.$route.query.loc_physicall_ms) data.loc_physicall_ms = this.$route.query.loc_physicall_ms
+        if(this.$route.query.loc_interest_ms) data.loc_interest_ms = this.$route.query.loc_interest_ms
+        if(this.$route.query.network) data.network = this.$route.query.network
+        if(this.$route.query.placement) data.placement = this.$route.query.placement
+        if(this.$route.query.gc_id) data.gc_id = this.$route.query.gc_id
+        if(this.$route.query.h_ad_id) data.h_ad_id = this.$route.query.h_ad_id
+        if(this.$route.query.cpid) data.cpid = this.$route.query.cpid
 
-      if(this.$route.query.sub1) data.lp_s1 = this.$route.query.sub1
-      if(this.$route.query.sub2) data.lp_s2 = this.$route.query.sub2
+        if(this.$route.query.sub1) data.lp_s1 = this.$route.query.sub1
+        if(this.$route.query.sub2) data.lp_s2 = this.$route.query.sub2
 
-      data.lp_offer_id = 4
-      data.lp_campaign_id = "64d27de536191"
+        data.lp_offer_id = 4
+        data.lp_campaign_id = "64d27de536191"
 
-      if(process.env.NODE_ENV === 'development' || this.email === 'onyx18121990@gmail.com') data.lp_test = 1
+        if(process.env.NODE_ENV === 'development' || this.email === 'onyx18121990@gmail.com') data.lp_test = 1
 
-      this.$axios.post(process.env.API+'/lp', {
-        headers: {'Content-Type': 'application/json'},
-        params: data
-      })
-        .then(res => {
-          console.dir(res)
-          if(res.data.result === "failed" || res.status > 299){
-            throw res.data.message
-          } else {
-            this.hookActionSecond(data)
-            if(employees > 4 && owner === 'Yes' && this.hook & this.$route.name !== 'lam-inceptly'){
-              this.hookAction(this.first_name, this.last_name, this.email, phone)
-            }
-            if(this.thanks){
-              this.$router.push({
-                path: '/thanks',
-                query: {
-                  q: JSON.stringify(this.quiz),
-                  name: this.$route.name,
-                  email: this.email,
-                  r: JSON.stringify(res)
-                }
-              })
+        this.$axios.post(process.env.API+'/lp', {
+          headers: {'Content-Type': 'application/json'},
+          params: data
+        })
+          .then(res => {
+            console.dir(res)
+            if(res.data.result === "failed" || res.status > 299){
+              throw res.data.message
             } else {
-              this.$parent.route = this.$route.name
+              this.hookActionSecond(data)
+              if(employees > 4 && owner === 'Yes' && this.hook & this.$route.name !== 'lam-inceptly'){
+                this.hookAction(this.first_name, this.last_name, this.email, phone)
+              }
+              if(this.thanks){
+                this.$router.push({
+                  path: '/thanks',
+                  query: {
+                    q: JSON.stringify(this.quiz),
+                    name: this.$route.name,
+                    email: this.email,
+                    r: JSON.stringify(res)
+                  }
+                })
+              } else {
+                this.$parent.route = this.$route.name
+              }
             }
-          }
-        })
-        .catch(err => {
-          if(process.env.NODE_ENV === 'production') this.$axios.post(process.env.API+'/error', { params: { msg: 'FormLam.vue '+err } })
-          this.$swal(err)
-        })
-        .finally(() => {
-          this.spinner = false
-        })
+          })
+          .catch(err => {
+            if(process.env.NODE_ENV === 'production') this.$axios.post(process.env.API+'/error', { params: { msg: 'FormLam.vue '+err } })
+            this.$swal(err)
+          })
+          .finally(() => {
+            this.spinner = false
+          })
+      }
     },
   },
   watch: {

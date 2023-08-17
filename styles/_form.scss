@@ -194,11 +194,17 @@
     font-size: 23px;
     color: #59595a;
     padding: 0 30px;
+    transition: .3s ease;
     &:not(:first-child) {
       margin-top: 15px;
     }
     &::placeholder {
       color: #a4bce1;
+    }
+
+    &.err{
+      border-color: var(--brand-red) !important;
+      box-shadow: 0 0 8px var(--brand-red) inset !important;
     }
 
     &[type='submit'] {
