@@ -58,63 +58,58 @@ export default {
 
 <style lang="scss" scoped>
 .section2 {
-  padding: 100px 0;
-  background: rgb(243, 255, 255);
-  @media (max-width: 767) {
-    padding: 30px 0;
+  padding: res(30, 60) 0;
+  background: #fff;
+  &__list {
+    margin: 0 -15px 0;
+    padding: 0;
+    list-style: none;
+    @media(min-width:768px){
+      display: flex;
+      justify-content: space-between;
+    }
   }
-}
-.section2__list {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 -15px 0;
-  padding: 0;
-  list-style: none;
-  @media (max-width: 767) {
+  &__item {
+    padding: 15px;
+    width: calc(100% / 3);
+    max-width: 460px;
+    text-align: center;
+    @media (max-width: 767px) {
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+  .section2__item-logo {
+    margin: 0;
     display: block;
+    position: relative;
+    &:before {
+      content: '';
+      width: 120px;
+      height: 120px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(95, 198, 193, 0.15);
+      border-radius: 50%;
+    }
+    img {
+      display: block;
+      max-width: 126px;
+      margin: 0 auto;
+    }
   }
-}
-.section2__item {
-  padding: 15px;
-  width: calc(100% / 3);
-  max-width: 460px;
-  text-align: center;
-  @media (max-width: 767) {
-    width: 100%;
-    margin: 0 auto;
+  .section2__item-title {
+    font-size: 24px;
+    color: #106b70;
+    margin: 0.3em 0 0;
+    font-weight: 600;
+    line-height: 1;
   }
-}
-.section2__item-logo {
-  margin: 0;
-  display: block;
-  position: relative;
-  &:before {
-    content: '';
-    width: 120px;
-    height: 120px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(95, 198, 193, 0.15);
-    border-radius: 50%;
+  .section2__item-text {
+    font-size: 18px;
+    margin: 0.5em 0 0;
   }
-
-  img {
-    display: block;
-    max-width: 126px;
-    margin: 0 auto;
-  }
-}
-.section2__item-title {
-  font-size: 24px;
-  color: #106b70;
-  margin: 0.3em 0 0;
-  font-weight: 600;
-  line-height: 1;
-}
-.section2__item-text {
-  font-size: 18px;
-  margin: 0.5em 0 0;
 }
 </style>

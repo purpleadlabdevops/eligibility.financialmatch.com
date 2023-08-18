@@ -33,7 +33,6 @@
 
 <script>
 export default {
-  name: 'Top',
   data(){
     return {
       route: null,
@@ -63,10 +62,7 @@ export default {
 
 <style lang="scss" scoped>
 .top {
-  padding: 20px 0 60px;
-  @media (max-width: 575px) {
-    padding: 10px 0 60px;
-  }
+  padding: res(10, 15) 0 res(30, 50);
 }
 .top__inner {
   display: flex;
@@ -93,13 +89,14 @@ export default {
     width: 100%;
     order: -1;
     padding: 0;
+    margin-bottom: res(15, 30);
   }
 }
 .top__pre-title {
   font-weight: 400;
   font-size: 24px;
   margin: 0;
-  @media (max-width: 767) {
+  @media (max-width: 767px) {
     font-size: 20px;
   }
   @media (max-width: 575px) {
@@ -111,7 +108,7 @@ export default {
   font-weight: 700;
   line-height: 1.3em;
   margin: 0.2em 0 0;
-  @media (max-width: 767) {
+  @media (max-width: 767px) {
     font-size: 42px;
     margin: 0.5em 0 0;
   }

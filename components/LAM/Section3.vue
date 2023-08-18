@@ -90,7 +90,7 @@ export default {
 .section3__grid-row {
   display: flex;
   align-items: flex-start;
-  @media (max-width: 767) {
+  @media (max-width: 767px) {
     display: block;
   }
   &:not(:first-child) {
@@ -100,7 +100,7 @@ export default {
     .section3__grid-dscr-col {
       order: -1;
       padding: 15px 30px 15px 80px;
-      @media (max-width: 767) {
+      @media (max-width: 767px) {
         width: 100%;
         padding: 0;
       }
@@ -110,7 +110,7 @@ export default {
 .section3__grid-dscr-col {
   padding: 15px 80px 15px 30px;
   width: 60%;
-  @media (max-width: 767) {
+  @media (max-width: 767px) {
     width: 100%;
     padding: 0;
   }
@@ -128,7 +128,7 @@ export default {
 .section3__grid-img-col {
   padding: 0px 15px 0px 0px;
   width: 40%;
-  @media (max-width: 767) {
+  @media (max-width: 767px) {
     width: 100%;
     padding: 0;
     margin-bottom: 30px;
@@ -143,7 +143,7 @@ export default {
     max-width: 460px;
     box-shadow: 5px 5px 10px 0px rgb(0 0 0 / 15%);
     border: 10px solid white;
-    @media (max-width: 767) {
+    @media (max-width: 767px) {
       max-width: none;
     }
   }

@@ -49,7 +49,7 @@ export default {
 
 <style lang="scss">
 .main-header {
-  padding: res(10, 20) 0 0;
+  padding: res(10, 15) 0;
   .container{
     display: flex;
     justify-content: space-between;
@@ -59,10 +59,12 @@ export default {
     }
   }
   &__logo {
-    width: res(100, 250);
+    width: res(180, 300);
     display: block;
     img {
       width: 100%;
+      height: auto;
+      display: block;
     }
   }
   &__phone{

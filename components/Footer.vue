@@ -44,7 +44,7 @@ export default {
     }
   }
   &__logo {
-    width: res(100, 250);
+    width: res(200, 300);
     display: block;
     margin-bottom: 1rem;
     margin-left: auto;

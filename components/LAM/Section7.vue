@@ -55,7 +55,7 @@ export default {
   font-weight: 600;
   text-align: center;
   margin: 0;
-  @media (max-width: 767) {
+  @media (max-width: 767px) {
     font-size: 30px;
   }
 }
@@ -66,7 +66,7 @@ export default {
   text-align: center;
   max-width: 900px;
   margin: 1em auto;
-  @media (max-width: 767) {
+  @media (max-width: 767px) {
     font-size: 18px;
   }
 }

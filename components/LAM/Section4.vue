@@ -22,7 +22,7 @@ export default {
   //@media (max-width: 1399px) {
   //  padding-bottom: 35%;
   //}
-  //@media (max-width: 767) {
+  //@media (max-width: 767px) {
   //  padding-top: 40px;
   //  padding-bottom: 40%;
   //}
@@ -34,7 +34,7 @@ export default {
   text-align: center;
   line-height: 1.2;
 
-  @media (max-width: 767) {
+  @media (max-width: 767px) {
     font-size: 30px;
   }
 }
