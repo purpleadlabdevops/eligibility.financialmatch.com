@@ -18,6 +18,7 @@ export default {
   layout: 'lam',
   head() {
     return {
+      title: 'RC Advisors',
       script: [
         {
           ssr: false,
