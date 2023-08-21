@@ -415,7 +415,7 @@ export default {
             }
           })
           .catch(err => {
-            if(process.env.NODE_ENV === 'production') this.$axios.post(process.env.API+'/error', { params: { msg: 'Form.vue '+err } })
+            if(process.env.NODE_ENV === 'production') this.$axios.post(process.env.API+'/error', { params: { msg: 'NTC/Form.vue '+err } })
             this.$swal(err)
           })
           .finally(() => {
