@@ -12,13 +12,7 @@
           <path d="M0.999659 1.22407C11.3369 0.0793971 26.9397 2.75616 6.65257 22.6206M8.2375 14.5903C8.20227 16.6859 7.84655 21.2153 6.7054 22.5678C7.93812 21.8458 12.147 20.5602 14.8414 20.296" stroke="#75A7EF" />
         </svg>
       </h3>
-      <div class="form-options" v-if="item.id === 'owner'">
-        <button class="is_employee__button" type="button" v-for="(option, index) in item.options" :id="'is_employee__button__'+option.value" @click.prevent="chooseAnswer(option.value, i)" :key="'em_'+index" :value="option.value">
-          <input class="is_employee__input" type="hidden" :value="option.value" :id="'is_employee__input__'+option.value" />
-          {{ option.text }}
-        </button>
-      </div>
-      <div class="form-options" v-else-if="item.options === 'Number'">
+      <div class="form-options" v-if="item.options === 'Number'">
         <select v-model="number" id="emp">
           <option disabled value="">Choose one</option>
           <option :value="i" v-for="i in item.max">{{ i }}</option>
@@ -102,6 +96,7 @@
     </div>
 
     <input ref="leadid_token" id="leadid_token" name="universal_leadid" type="hidden" />
+    <input type="hidden" name="is_employee" :value="getAnswer('owner') === 'I am a Business Owner' ? 'No':'Yes';">
 
     <div class="spinner" v-if="spinner">
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -141,14 +136,7 @@ export default {
       quiz: [
         {
           question: 'Are you?',
-          options: [
-            {
-              text: 'I am a Business Owner',
-              value: 'No'
-            }, {
-              text: 'I am an Employee',
-              value: 'Yes'
-            }],
+          options: ['I am a Business Owner', 'I am an Employee'],
           answer: null,
           id: 'owner',
         },
@@ -264,7 +252,7 @@ export default {
         }, 2000);
       } else{
         this.spinner = true
-        const owner = this.getAnswer('owner');
+        const owner = this.getAnswer('owner') === 'I am a Business Owner' ? 'No':'Yes';
         this.$store.commit('setResult', this.getAnswer('number_of_w2_employees'))
 
         const employees = this.getAnswer('number_of_w2_employees')
