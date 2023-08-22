@@ -96,7 +96,7 @@
     </div>
 
     <input ref="leadid_token" id="leadid_token" name="universal_leadid" type="hidden" />
-    <input type="hidden" name="is_employee" :value="getAnswer('owner') === 'I am a Business Owner' ? 'No':'Yes';">
+    <input type="hidden" name="is_employee" :value="getAnswer('owner') === 'I am a Business Owner' ? 'No':'Yes'">
 
     <div class="spinner" v-if="spinner">
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
