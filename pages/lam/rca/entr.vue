@@ -29,7 +29,7 @@ export default {
     }
   },
   mounted(){
-    this.$store.commit('setPhone', '18339010352')
+    this.$store.commit('setPhone', '18449974732')
     console.log(this.$route.name);
   },
 }
