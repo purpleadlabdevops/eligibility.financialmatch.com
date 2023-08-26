@@ -23,7 +23,7 @@ export default {
         {
           ssr: false,
           async: true,
-          src: 'https://b-js.ringba.com/CAaeed274cccc44a498c261668dad4510b'
+          src: 'https://b-js.ringba.com/CA7a2742a80cfc4a4bb35e5b9d4a696dba'
         },
       ]
     }
