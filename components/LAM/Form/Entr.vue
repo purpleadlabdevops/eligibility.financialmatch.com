@@ -83,6 +83,7 @@
         ref="phone"
         @change="change('phone', $event)"
         @input="phoneInput"
+        minlength="14"
         maxlength="14"
         id="phone">
 
