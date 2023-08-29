@@ -244,7 +244,7 @@ export default {
         })
     },
     submit() {
-      if(this.phone.length < 14){
+      if(this.phone.length < 14 || this.phone.length > 14){
         this.$refs.phone.classList.add('err')
         alert('Please insert valid phone number')
         setTimeout(()=>{
