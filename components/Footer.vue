@@ -6,7 +6,7 @@
           <img v-if="['lam-rca-entr', 'lam-rca', 'lam-rca-privacy', 'lam-rca-terms'].includes(this.$route.name)" src="@/assets/img/rca-logo.png" alt="logo" />
           <img v-else src="@/assets/img/ntc-logo.png" alt="logo" />
         </div>
-        <div>The experts at National Tax Credits take pride in maximizing your credits so that you can grow your business.</div>
+        <div>The experts at <span v-html="['lam-rca-entr', 'lam-rca', 'lam-rca-privacy', 'lam-rca-terms'].includes(this.$route.name) ? 'RC Advisors' : 'National Tax Credits'"></span> take pride in maximizing your credits so that you can grow your business.</div>
       </div>
       <div class="main-footer__bottom">
         <div class="main-footer__menu">
