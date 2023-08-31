@@ -4,7 +4,7 @@
       <LAMThanks v-if="['lam-ntc', 'lam-ntc-entr', 'lam-rca', 'lam-rca-entr'].includes(route)" />
       <div class="top__inner" v-else >
         <div class="top__questions-col">
-          <LAMFormEntr v-if="this.$route.name === 'lam-ntc-entr'" :hook="true" />
+          <LAMFormEntr v-if="['lam-ntc-entr', 'lam-rca-entr'].includes(this.$route.name)" :hook="true" />
           <LAMForm v-else :hook="true" />
           <ul class="top__list" v-if="winWidth <= 768">
             <li>Qualify 1 of 3 Different Ways (Revenue Reduction, Shutdowns, Supply Chain Disruptions)</li>
