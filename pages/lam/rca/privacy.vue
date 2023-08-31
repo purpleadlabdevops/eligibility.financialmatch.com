@@ -3,7 +3,7 @@
     <div class="container">
       <h1>PRIVACY POLICY</h1>
       <h2>Introduction.</h2>
-      <p>Website Owner. National Tax Credits is the owner of this website (“National Tax Credits Website&quot;).
+      <p>Website Owner. RC Advisors is the owner of this website (“RC Advisors Website&quot;).
         RC Advisors can be contacted by mail at 30 N Gould St, Ste R, , Sheridan, Wyoming 82801,
         by phone at [855-855-9365], or by e-mail at service@financialmatch.com. This online privacy
         notice discloses RC Advisors information practices for this RC Advisors Website,
