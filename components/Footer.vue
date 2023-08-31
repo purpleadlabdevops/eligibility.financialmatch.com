@@ -2,15 +2,16 @@
   <footer class="main-footer">
     <div class="container">
       <div class="main-footer__top">
-        <div class="main-footer__logo">
-          <img src="@/assets/img/ntc-logo.png" alt="logo" />
+        <div class="main-footer__logo" :class="['lam-rca-entr', 'lam-rca', 'lam-rca-privacy', 'lam-rca-terms'].includes(this.$route.name) ? 'main-footer__logo-rca':''">
+          <img v-if="['lam-rca-entr', 'lam-rca', 'lam-rca-privacy', 'lam-rca-terms'].includes(this.$route.name)" src="@/assets/img/rca-logo.png" alt="logo" />
+          <img v-else src="@/assets/img/ntc-logo.png" alt="logo" />
         </div>
         <div>The experts at National Tax Credits take pride in maximizing your credits so that you can grow your business.</div>
       </div>
       <div class="main-footer__bottom">
         <div class="main-footer__menu">
-          <nuxt-link to="/privacy">Privacy Policy</nuxt-link>
-          <nuxt-link to="/terms">Terms and Conditions</nuxt-link>
+          <nuxt-link :to="['lam-rca-entr', 'lam-rca', 'lam-rca-privacy', 'lam-rca-terms'].includes(this.$route.name) ? '/lam/rca/privacy' : '/privacy'">Privacy Policy</nuxt-link>
+          <nuxt-link :to="['lam-rca-entr', 'lam-rca', 'lam-rca-privacy', 'lam-rca-terms'].includes(this.$route.name) ? '/lam/rca/terms' : '/terms'">Terms and Conditions</nuxt-link>
         </div>
         <div>© 2023 Employee Retention Tax Credit. All Rights Reserved.</div>
       </div>
@@ -26,7 +27,7 @@ export default {
 
 <style lang="scss" scoped>
 .main-footer {
-  margin-top: res(50, 100);
+  margin-top: res(30, 50);
   &__top {
     margin-left: auto;
     margin-right: auto;
@@ -51,6 +52,9 @@ export default {
     margin-right: auto;
     img {
       width: 100%;
+    }
+    &-rca{
+      width: res(80, 150);
     }
   }
   a{
