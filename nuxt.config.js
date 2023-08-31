@@ -49,14 +49,6 @@ export default {
           console.log('Hyros loaded')
         }
       },
-      {
-        ssr: false,
-        async: true,
-        src: 'https://b-js.ringba.com/CA2919c057d34b44f9bdecc7bfa5a0da3b',
-        callback: () => {
-          console.log('Ringba loaded')
-        }
-      },
     ]
   },
   styleResources: {
