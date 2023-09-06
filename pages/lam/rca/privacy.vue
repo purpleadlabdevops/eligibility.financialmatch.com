@@ -231,8 +231,7 @@
         complaint about RC Advisors compliance with this privacy policy, you may contact
         RC Advisors by e-mail at service@RC Advisors.com. If RC Advisors is unable to
         resolve your complaint to your reasonable satisfaction or if customer does not receive
-        acknowledgment of an inquiry, customer may elect to proceed by contacting service@Financial
-        Match.com.
+        acknowledgment of an inquiry, customer may elect to proceed by contacting service@FinancialMatch.com.
       </p>
       <p>Terms of Use. If customer chooses to subscribe to RC Advisors&#39;s services, customer&#39;s action
         is hereby deemed acceptance of RC Advisors practices described in this policy statement.
