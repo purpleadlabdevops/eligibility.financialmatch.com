@@ -21,7 +21,7 @@
       </p>
       <p>Website Transactions. At times, RC Advisors will need personal information regarding a
         customer or a prospect. For example, to process an order or provide a subscription, Financial
-        Matchs may need to know a customer&#39;s name, mailing address, e-mail address and credit card
+        Match may need to know a customer&#39;s name, mailing address, e-mail address and credit card
         details. It is RC Advisors&#39;s intent to inform you before RC Advisors collects personal
         information, such as user&#39;s name and/or address on the Internet. If you tell us that you do not
         wish to have this information used as a basis for further contact with you, RC Advisors will
@@ -39,13 +39,13 @@
         RC Advisors, or RC Advisors to call the customer. RC Advisors will not contact
         you by telephone without your prior consent, except to confirm an order placed online and/or to
         inform a customer of the status of such order. Customer should be aware that it is Financial
-        Matchs&#39;s practice to monitor, and in some cases record such calls for staff training or quality
+        Match&#39;s practice to monitor, and in some cases record such calls for staff training or quality
         assurance purposes.
       </p>
       <p>Information from Children. RC Advisors does not sell products or services for purchase
         by children, and will not knowingly collect or post information from a child under the age of 18
         without the involvement of a parent or guardian. To the extent reasonably possible, Financial
-        Matchs will notify the child&#39;s parent or guardian at the e-mail address provided by the
+        Match will notify the child&#39;s parent or guardian at the e-mail address provided by the
         prospective customer, alerting the parent or guardian to the child&#39;s use of the Website and
         providing instructions as to how the parent or guardian can delete the child&#39;s registration from the
         Website.
@@ -61,7 +61,7 @@
         forum or bulletin board. Some individual RC Advisors chat rooms, forums or bulletin boards
         have additional rules and conditions regarding participation. Also, participant&#39;s expressed
         opinion is his or her own and should not be considered as reflecting the opinion of Financial
-        Matchs.
+        Match.
       </p>
       <p>Links to Other Websites. An RC Advisors Website may contain links to other websites.
         RC Advisors is not responsible for the privacy practices or the content of those other
@@ -101,7 +101,7 @@
         information.
       </p>
       <p>Mergers and Acquisitions. For the purpose of developing and expanding its business, Financial
-        Matchs may share, rent, sell or buy business assets. In such transactions, customer information is
+        Match may share, rent, sell or buy business assets. In such transactions, customer information is
         generally one of the transferred business assets. Also, in the event RC Advisors is acquired,
         customer information will be one of the transferred assets.
       </p>
@@ -126,7 +126,7 @@
       <p>Disclosure to Governmental Authorities. RC Advisors releases personal identifying
         information when RC Advisors believes release is appropriate to comply with law, to
         enforce RC Advisors agreements, or to protect the rights, property or safety of Financial
-        Matchs customers. RC Advisors may also release such information in an exchange of
+        Match customers. RC Advisors may also release such information in an exchange of
         information with other companies and/or organizations for the purposes of fraud protection and
         credit risk reduction.
       </p>
@@ -145,7 +145,7 @@
         an alphanumeric identifier that a Website can transfer to customer&#39;s hard drive through
         customer&#39;s browser. The cookie is then stored on customer&#39;s computer as an anonymous tag that
         identifies the customer&#39;s computer, but not the customer. Cookies may be sent by Financial
-        Matchs or its third party vendors. Customer can set its browser to notify customer before a
+        Match or its third party vendors. Customer can set its browser to notify customer before a
         cookie is received, giving an opportunity to decide whether to accept the cookie. Customer may
         also set its browser to turn off cookies; however, some Websites may not then work properly.
         Use of Web Beacon Technologies. RC Advisors may also use Web beacon or other
@@ -187,7 +187,7 @@
       </p>
       <h2>Privacy Policy Changes and Opt-Out Rights.</h2>
       <p>Changes to Privacy Policy. This privacy notice was last updated on July 8, 2022. Financial
-        Matchs reserves the right to change its privacy policy statement at any time. A notice of such
+        Match reserves the right to change its privacy policy statement at any time. A notice of such
         change will be posted on the RC Advisors Website on page for three (3) days prior to the
         implementation of such change.
       </p>
@@ -202,7 +202,7 @@
       <p>Information Maintained by RC Advisors. Upon customer&#39;s request, RC Advisors
         will provide a reasonable description of customer&#39;s personally identifiable information that
         RC Advisors maintains in its data bank. RC Advisors can be contacted by e-mail at
-        service@FinancialMatchs.com, telephone at [WebsiteOwnerTelephoneTE], or certified postal
+        service@FinancialMatch.com, telephone at [WebsiteOwnerTelephoneTE], or certified postal
         mail at 30 N Gould St, Ste R, , Sheridan, Wyoming 82801.
       </p>
       <p>Corrections and Changes to Personal Information. Help RC Advisors to keep customer
@@ -232,7 +232,7 @@
         RC Advisors by e-mail at service@RC Advisors.com. If RC Advisors is unable to
         resolve your complaint to your reasonable satisfaction or if customer does not receive
         acknowledgment of an inquiry, customer may elect to proceed by contacting service@Financial
-        Matchs.com.
+        Match.com.
       </p>
       <p>Terms of Use. If customer chooses to subscribe to RC Advisors&#39;s services, customer&#39;s action
         is hereby deemed acceptance of RC Advisors practices described in this policy statement.
