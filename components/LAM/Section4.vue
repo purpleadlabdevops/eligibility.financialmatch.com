@@ -2,7 +2,7 @@
   <section class="section4">
     <div class="container">
       <h2 class="section4__title">
-        Introducing the 100% Done-For-You ERC Service from National Tax Credits
+        Introducing the 100% Done-For-You ERC Service from <span v-html="['lam-rca', 'lam-rca-entr'].includes(this.$route.name) ? 'RC Advisors':'National Tax Credits'"></span>
       </h2>
     </div>
   </section>
