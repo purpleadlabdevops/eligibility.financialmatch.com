@@ -5,7 +5,7 @@
       <h2>Introduction.</h2>
       <p>Website Owner. RC Advisors is the owner of this website (“RC Advisors Website&quot;).
         RC Advisors can be contacted by mail at 30 N Gould St, Ste R, , Sheridan, Wyoming 82801,
-        by phone at [855-855-9365], or by e-mail at service@financialmatch.com. This online privacy
+        by phone at [855-855-9365], or by e-mail at <a href="mailto:service@financialmatch.com">service@financialmatch.com</a>. This online privacy
         notice discloses RC Advisors information practices for this RC Advisors Website,
         including what type of personal identifiable information is requested in order to make a
         purchase, how the information is used, and with whom the information is shared. Note that other
@@ -194,7 +194,7 @@
       <p>Opt-Out Right. Customer has the right at any time to cease permitting personal information to
         be collected, used or disclosed by RC Advisors and/or by any third parties with whom
         RC Advisors has shared and/or transferred such personal information. Right of cancellation
-        may be exercised by contacting RC Advisors via e-mail at service@RC Advisors.com,
+        may be exercised by contacting RC Advisors via e-mail at <a href="mailto:service@financialmatch.com">service@financialmatch.com</a>,
         telephone or certified postal mail. After processing the cancellation, RC Advisors will delete
         customer or prospective customer&#39;s personal information from its data base.
       </p>
@@ -202,13 +202,13 @@
       <p>Information Maintained by RC Advisors. Upon customer&#39;s request, RC Advisors
         will provide a reasonable description of customer&#39;s personally identifiable information that
         RC Advisors maintains in its data bank. RC Advisors can be contacted by e-mail at
-        service@FinancialMatch.com, telephone at [WebsiteOwnerTelephoneTE], or certified postal
+        <a href="mailto:service@financialmatch.com">service@financialmatch.com</a>, telephone at [WebsiteOwnerTelephoneTE], or certified postal
         mail at 30 N Gould St, Ste R, , Sheridan, Wyoming 82801.
       </p>
       <p>Corrections and Changes to Personal Information. Help RC Advisors to keep customer
         personal information accurate. If customer&#39;s personal information changes, or if customer notes
         an error upon review of customer information that RC Advisors has on file, please promptly
-        e-mail RC Advisors at service@RC Advisors.com and provide the new or correct
+        e-mail RC Advisors at <a href="mailto:service@financialmatch.com">service@financialmatch.com</a> and provide the new or correct
         information.
       </p>
       <p>Your California Privacy Rights. Beginning on January 1, 2005, California Civil Code Section
@@ -229,9 +229,9 @@
       <h2>Accountability.</h2>
       <p>Questions, Problems and Complaints. If you have a question about this policy statement, or a
         complaint about RC Advisors compliance with this privacy policy, you may contact
-        RC Advisors by e-mail at service@RC Advisors.com. If RC Advisors is unable to
+        RC Advisors by e-mail at <a href="mailto:service@financialmatch.com">service@financialmatch.com</a>. If RC Advisors is unable to
         resolve your complaint to your reasonable satisfaction or if customer does not receive
-        acknowledgment of an inquiry, customer may elect to proceed by contacting service@FinancialMatch.com.
+        acknowledgment of an inquiry, customer may elect to proceed by contacting <a href="mailto:service@financialmatch.com">service@financialmatch.com</a>.
       </p>
       <p>Terms of Use. If customer chooses to subscribe to RC Advisors&#39;s services, customer&#39;s action
         is hereby deemed acceptance of RC Advisors practices described in this policy statement.
