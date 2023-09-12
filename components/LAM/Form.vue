@@ -321,8 +321,8 @@ export default {
         if(this.$route.query.sub1) data.lp_s1 = this.$route.query.sub1
         if(this.$route.query.sub2) data.lp_s2 = this.$route.query.sub2
 
-        data.lp_offer_id = 4
-        data.lp_campaign_id = "64d27de536191"
+        data.lp_offer_id = ['lam-rca', 'lam-rca-entr'].includes(this.$route.name) ? 1 : 4
+        data.lp_campaign_id = ['lam-rca', 'lam-rca-entr'].includes(this.$route.name) ? '64ff7a0651cd1' : "64d27de536191"
 
         if(process.env.NODE_ENV === 'development' || this.email === 'onyx18121990@gmail.com') data.lp_test = 1
 

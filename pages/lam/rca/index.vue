@@ -30,7 +30,6 @@ export default {
   },
   mounted(){
     this.$store.commit('setPhone', '18559631428')
-    console.log(this.$route.name);
   }
 }
 </script>
